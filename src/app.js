@@ -52,7 +52,10 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
     .factory('Ad', function () {
         return Parse.Object.extend({
             className: "Ad",
-            attrs: ['title', 'url']
+            attrs: ['title', 'url'],
+            getURI: function () {
+                return URI(this.get('url'));
+            }
         });
     })
     .factory('AdCollection', ['$rootScope', 'Ad', function ($rootScope, Ad) {

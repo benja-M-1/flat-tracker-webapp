@@ -6,7 +6,7 @@ ul.list-group
             div.col-xs-12.col-sm-10
                 h4.list-group-item-heading {{ ad.get('title') }}
                 p.text-muted.
-                    ajouté par {{ ad.get('user').get('username') }} <span am-time-ago="ad.createdAt"></span> depuis <span class="seloger">seloger.com</span>
+                    ajouté par {{ ad.get('user').get('username') }} <span am-time-ago="ad.createdAt"></span> depuis <span class="logo {{ ad.getURI().domain().replace('.', '') }}">{{ ad.getURI().domain() }}</span>
                 ul.list-inline
                     li
                         a.text-muted(href="{{ ad.get('url') }}") voir sur le site

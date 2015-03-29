@@ -19,6 +19,7 @@
     "parse-angular-patch": "~0.1.2",
     "lodash": "~3.6.0",
     "angular-ui-router": "~0.2.13",
-    "angular-momentjs": "~0.1.9"
+    "angular-momentjs": "~0.1.9",
+    "uri.js": "~1.14.2"
   }
 }
