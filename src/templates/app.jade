@@ -1,0 +1,14 @@
+ul.list-group
+    li.list-group-item(ng-repeat="ad in ads.models")
+        div.row
+            div.col-xs-12.col-sm-2
+                img(src="images/background.jpg" alt="appartment" width="100%")
+            div.col-xs-12.col-sm-10
+                h4.list-group-item-heading {{ ad.get('title') }}
+                p.text-muted.
+                    ajouté par {{ ad.get('user').get('username') }} <span am-time-ago="ad.createdAt"></span> depuis <span class="seloger">seloger.com</span>
+                ul.list-inline
+                    li
+                        a.text-muted(href="{{ ad.get('url') }}") voir sur le site
+                    li
+                        a.text-muted(href="#") commentaires

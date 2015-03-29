@@ -5,8 +5,8 @@ html(lang="fr" ng-app="flatTracker")
         link(rel="stylesheet" href="css/flat-tracker.css")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
-    body
-        nav.navbar.navbar-flat-tracker.navbar-flat-tracker-inverse
+    body(ng-class="{unauthenticated: !user}")
+        nav.navbar.navbar-flat-tracker(ng-class="{'navbar-flat-tracker-inverse': user}")
             div.container
                 div.navbar-header
                     button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#menu")
@@ -18,26 +18,10 @@ html(lang="fr" ng-app="flatTracker")
 
                 div.collapse.navbar-collapse#menu
                     ul.nav.navbar-nav.navbar-right
-                        li
+                        li(ng-hide="!user")
                             a(href="#") <i class="icon-male-sign-alt icon-2x"></i>
                                 p Mon Compte
-        div.container
-            ul.list-group
-            - for (var x = 0; x < 3; x++)
-                li.list-group-item
-                    div.row
-                        div.col-xs-12.col-sm-2
-                            img(src="images/background.jpg" alt="appartment" width="100%")
-                        div.col-xs-12.col-sm-10
-                            h4.list-group-item-heading Location appartement 3 pièces Paris 9ème - appartement F3/T3/3 pièces 51,54m² 1480€/mois
-                            p.text-muted.
-                                ajouté par Benjamin il y a 15 jours depuis <span class="seloger">seloger.com</span>
-                            ul.list-inline
-                                li
-                                    a.text-muted(href="http://www.seloger.com/annonces/locations/appartement/paris-9eme-75/trudaine-maubeuge/97564813.htm?ali=1&n=FdAYrVes90LiN78ngA&p=CBBPqSgIAALkd-Tw&cmp=ALSL-L&org=alertes_immo&utm_source=gmail.com&utm_medium=ali&utm_campaign=alertes_immo&idannali=97564813") voir sur le site
-                                li
-                                    a.text-muted(href="http://www.seloger.com/annonces/locations/appartement/paris-9eme-75/trudaine-maubeuge/97564813.htm?ali=1&n=FdAYrVes90LiN78ngA&p=CBBPqSgIAALkd-Tw&cmp=ALSL-L&org=alertes_immo&utm_source=gmail.com&utm_medium=ali&utm_campaign=alertes_immo&idannali=97564813") commentaires
-
+        div.container(ui-view)
 
         footer.clearfix
             div.container
@@ -48,3 +32,11 @@ html(lang="fr" ng-app="flatTracker")
 
     script(src="js/jquery/dist/jquery.min.js")
     script(src="js/bootstrap/dist/js/bootstrap.min.js")
+    script(src="js/moment/min/moment-with-locales.min.js")
+    script(src="js/parse-1.4.0.min.js")
+    script(src="js/angular/angular.min.js")
+    script(src="js/angular-momentjs/angular-momentjs.min.js")
+    script(src="js/angular-ui-router/release/angular-ui-router.min.js")
+    script(src="js/parse-angular.js")
+    script(src="js/app.js")
+    script(src="js/templates.js")

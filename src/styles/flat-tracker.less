@@ -3,38 +3,21 @@
 @import "variables.less";
 
 @import "buttons.less";
+@import "forms.less";
 @import "icons.less";
+@import "logos.less";
 @import "navbar.less";
 @import "thumbnails.less";
-@import "logos.less";
+@import "utilities.less";
+
+html {
+  height: 100%;
+}
 
 body {
   position: relative;
   background-color: @gray-lighter;
-}
-//
-//body::after {
-//  background: url('@{images-path}background.jpg') no-repeat center center fixed;
-//  -webkit-background-size: cover;
-//  -moz-background-size: cover;
-//  -o-background-size: cover;
-//  background-size: cover;
-//  content: "";
-//  opacity: 0.7;
-//  top: 0;
-//  left: 0;
-//  bottom: 0;
-//  right: 0;
-//  position: absolute;
-//  z-index: -1;
-//}
-//
-//.jumbotron {
-//  background: transparent;
-//}
-
-.list-group-item-heading {
-  margin-bottom: 10px;
+  min-height: 100%;
 }
 
 footer {
@@ -43,4 +26,32 @@ footer {
   height: 60px;
   margin: 10px 0 0;
   color: @slate;
+}
+
+body.unauthenticated {
+  color: #ffffff;
+
+  &::after {
+    background: url('@{images-path}background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    content: "";
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  footer {
+    color: #ffffff;
+  }
+}
+
+.list-group-item-heading {
+  margin-bottom: 10px;
 }

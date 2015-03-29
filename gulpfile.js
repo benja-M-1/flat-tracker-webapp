@@ -7,13 +7,13 @@ var gulp = require('gulp')
     , templateCache = require('gulp-angular-templatecache')
     , webserver = require('gulp-webserver')
     , less = require('gulp-less')
-    ;
+;
 
 gulp.task('default', ['build']);
 
 gulp.task('webserver', ['build'], function () {
     gulp.src('www')
-    .pipe(webserver({
+        .pipe(webserver({
             host: '127.0.0.1',
             port: 5011,
             livereload: true
@@ -40,7 +40,7 @@ gulp.task('views', function (done) {
 
 gulp.task('templates', function (done) {
     gulp.src([
-        'src/**/*.jade'
+        'src/templates/*.jade'
     ])
         .pipe(jade({pretty: true}))
         .pipe(templateCache({
@@ -67,9 +67,9 @@ gulp.task('stylesheets', function (done) {
 
 gulp.task('copyfonts', function (done) {
     gulp.src([
-            'bower_components/bootstrap/fonts/*.{ttf,woff,woff2,eot,svg}',
-            'src/fonts/*.{ttf,woff,woff2,eot,svg}'
-        ])
+        'bower_components/bootstrap/fonts/*.{ttf,woff,woff2,eot,svg}',
+        'src/fonts/*.{ttf,woff,woff2,eot,svg}'
+    ])
         .pipe(gulp.dest('./www/fonts'))
         .on('error', gutil.log)
         .on('end', done)
@@ -78,8 +78,8 @@ gulp.task('copyfonts', function (done) {
 
 gulp.task('copyimages', function (done) {
     gulp.src([
-            'src/images/*'
-        ])
+        'src/images/*'
+    ])
         .pipe(gulp.dest('./www/images'))
         .on('error', gutil.log)
         .on('end', done)
