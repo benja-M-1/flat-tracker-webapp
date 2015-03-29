@@ -1,6 +1,16 @@
-angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse-angular.enhance', 'angular-moment'])
-    .config(function ($stateProvider, $urlRouterProvider) {
+angular.module('flatTracker', [
+    'templates',
+    'ui.router',
+    'parse-angular',
+    'parse-angular.enhance',
+    'angular-moment',
+    'ngIntercom'
+])
+    .constant('INTERCOM_APPID', 'yboar5wb')
+    .config(function ($stateProvider, $urlRouterProvider, $intercomProvider, INTERCOM_APPID) {
         Parse.initialize("90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7", "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN");
+        $intercomProvider.appID(INTERCOM_APPID);
+        $intercomProvider.asyncLoading(true);
 
         $urlRouterProvider.otherwise("/");
 
@@ -38,7 +48,7 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
             })
         ;
     })
-    .run(['$rootScope', '$state', '$moment', function ($rootScope, $state, $moment) {
+    .run(['$rootScope', '$state', '$moment', '$intercom', function ($rootScope, $state, $moment, $intercom) {
         $moment.locale('fr');
         $rootScope.user = Parse.User.current();
 
@@ -48,6 +58,13 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
             if (requireLogin && !$rootScope.user) {
                 event.preventDefault();
                 $state.go("login");
+            } else {
+                $intercom.boot({
+                    email: $rootScope.user.get('email'),
+                    name: $rootScope.user.get('username'),
+                    created_at: $rootScope.user.createdAt,
+                    user_id: $rootScope.user.objectId
+                });
             }
         });
     }])

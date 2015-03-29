@@ -20,6 +20,7 @@
     "lodash": "~3.6.0",
     "angular-ui-router": "~0.2.13",
     "angular-momentjs": "~0.1.9",
-    "uri.js": "~1.14.2"
+    "uri.js": "~1.14.2",
+    "angular-intercom": "~2.0.4"
   }
 }
