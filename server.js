@@ -5,4 +5,5 @@ var app = express();
 
 app.use(morgan('dev'));
 app.use(gzippo.staticGzip("" + __dirname + "/www"));
+app.disable('x-powered-by');
 app.listen(process.env.PORT || 8000);
