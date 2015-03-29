@@ -1,15 +1,15 @@
 angular.module('flatTracker', [
-    'templates',
+    'flatTracker.config',
+    'flatTracker.templates',
     'ui.router',
     'parse-angular',
     'parse-angular.enhance',
     'angular-moment',
     'ngIntercom'
 ])
-    .constant('INTERCOM_APPID', 'yboar5wb')
-    .config(function ($stateProvider, $urlRouterProvider, $intercomProvider, INTERCOM_APPID) {
-        Parse.initialize("90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7", "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN");
-        $intercomProvider.appID(INTERCOM_APPID);
+    .config(function ($stateProvider, $urlRouterProvider, $intercomProvider, configuration) {
+        Parse.initialize(configuration.parse.app_id, configuration.parse.js_key);
+        $intercomProvider.appID(configuration.intercom.app_id);
         $intercomProvider.asyncLoading(true);
 
         $urlRouterProvider.otherwise("/");

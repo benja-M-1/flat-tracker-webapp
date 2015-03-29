@@ -3,10 +3,13 @@ var gulp = require('gulp')
     , concat = require('gulp-concat')
     , changed = require('gulp-changed')
     , gutil = require('gulp-util')
+    , gif = require('gulp-if')
     , jade = require('gulp-jade')
     , templateCache = require('gulp-angular-templatecache')
     , webserver = require('gulp-webserver')
     , less = require('gulp-less')
+    , ngConfig = require('gulp-ng-config')
+    , env = process.env.NODE_ENV || 'dev';
 ;
 
 gulp.task('default', ['build']);
@@ -25,7 +28,7 @@ gulp.task('watch', ['webserver'], function () {
     gulp.watch('src/**', ['build']);
 });
 
-gulp.task('build', ['javascripts', 'templates', 'stylesheets', 'copyfonts', 'copyimages', 'views']);
+gulp.task('build', ['config', 'javascripts', 'templates', 'stylesheets', 'copyfonts', 'copyimages', 'views']);
 
 gulp.task('views', function (done) {
     gulp.src([
@@ -45,7 +48,7 @@ gulp.task('templates', function (done) {
         .pipe(jade({pretty: true}))
         .pipe(templateCache({
             filename: 'templates.js',
-            module: 'templates',
+            module: 'flatTracker.templates',
             standalone: true
         }))
         .pipe(gulp.dest('./www/js'))
@@ -93,8 +96,18 @@ gulp.task('javascripts', function (done) {
         'libs/*.js',
         'src/*.js'
     ])
+        .pipe(gif(env == "production" || env == "prod", concat('flat-tracker.js')))
         .pipe(gulp.dest('./www/js'))
         .on('error', gutil.log)
         .on('end', done)
+    ;
+});
+
+gulp.task('config', function () {
+    gulp.src('./config.json')
+        .pipe(ngConfig('flatTracker.config', {
+            environment: env
+        }))
+        .pipe(gulp.dest('./www/js'))
     ;
 });

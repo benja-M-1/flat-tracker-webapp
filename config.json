@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "configuration": {
+      "env": "development",
+      "intercom": {
+        "app_id": "zqkghur6"
+      },
+      "parse": {
+        "app_id": "90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7",
+        "js_key": "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN"
+      }
+    }
+  },
+  "prod": {
+    "configuration": {
+      "env": "production",
+      "intercom": {
+        "app_id": "yboar5wb"
+      },
+      "parse": {
+        "app_id": "90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7",
+        "js_key": "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN"
+      }
+    }
+  }
+}
