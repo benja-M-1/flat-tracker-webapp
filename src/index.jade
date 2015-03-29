@@ -40,7 +40,11 @@ html(lang="fr" ng-app="flatTracker")
 
 
         footer.clearfix
-            div.container.text-center @copyright 2015 Flat Tracker
+            div.container
+                ul.list-inline.text-center
+                    li
+                        a(href="mail:contact@flat-tracker.fr") Contactez-nous
+                    li @copyright 2015 Flat Tracker
 
     script(src="js/jquery/dist/jquery.min.js")
     script(src="js/bootstrap/dist/js/bootstrap.min.js")
