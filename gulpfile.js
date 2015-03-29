@@ -91,8 +91,15 @@ gulp.task('copyimages', function (done) {
 
 gulp.task('javascripts', function (done) {
     gulp.src([
-        'bower_components/**/*.min.js',
-        'bower_components/parse-angular-patch/dist/*.js',
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'bower_components/uri.js/src/URI.min.js',
+        'bower_components/moment/min/moment-with-locales.min.js',
+        'bower_components/parse-angular-patch/dist/parse-angular.js',
+        'bower_components/angular/angular.min.js',
+        'bower_components/angular-momentjs/angular-momentjs.min.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+        'bower_components/angular-intercom/angular-intercom.min.js',
         'libs/*.js',
         'src/*.js'
     ])
