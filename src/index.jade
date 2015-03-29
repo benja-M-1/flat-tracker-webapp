@@ -19,8 +19,11 @@ html(lang="fr" ng-app="flatTracker")
                 div.collapse.navbar-collapse#menu
                     ul.nav.navbar-nav.navbar-right
                         li(ng-hide="!user")
-                            a(href="#") <i class="icon-male-sign-alt icon-2x"></i>
+                            a.dropdown-toggle(data-toggle="dropdown" role="button" aria-expanded="false" href="#") <i class="icon-male-sign-alt icon-2x"></i>
                                 p Mon Compte
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(ui-sref="logout") Déconnexion
         div.container(ui-view)
 
         footer.clearfix

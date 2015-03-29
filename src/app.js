@@ -21,6 +21,13 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
                     requireLogin: false
                 }
             })
+            .state("logout", {
+                url: "/logout",
+                controller: "LogoutController",
+                data: {
+                    requireLogin: false
+                }
+            })
             .state("signup", {
                 url: "/signup",
                 templateUrl: "signup.html",
@@ -68,7 +75,7 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
         $scope.ads = new AdCollection();
         $scope.ads.fetch();
     }])
-    .controller('LoginController', ['$scope', '$rootScope', '$state', '$rootScope', function ($scope, $rootScope, $state) {
+    .controller('LoginController', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
         $scope.submit = function (username, password) {
             var user = new Parse.User({
                 username: username,
@@ -82,6 +89,12 @@ angular.module('flatTracker', ['templates', 'ui.router', 'parse-angular', 'parse
                 $scope.error = error;
             });
         };
+    }])
+    .controller('LogoutController', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
+        Parse.User.logOut().then(function () {
+            $rootScope.user = null;
+            $state.go("app");
+        });
     }])
     .controller('SignupController', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
         $scope.submit = function (username, email, password) {
