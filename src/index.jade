@@ -1,53 +1,20 @@
 doctype html
-html(lang="fr" ng-app="flatTracker")
+html(lang="fr", ng-app="%module%")
     head
         title Flat Tracker - Share appartment location ads
-        link(rel="stylesheet" href="css/flat-tracker.css")
-        meta(charset="UTF-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        meta(charset="utf-8")
+        link(rel="icon", type="image/x-icon", href="/favicon.ico")
+        link(rel="stylesheet", href="%styles%/vendor.css")
+        link(rel="stylesheet", href="%styles%/%module%.css")
+        meta(name="viewport", content="initial-scale=1.0, width=device-width")
     body(ng-class="{unauthenticated: !user}")
-        nav.navbar.navbar-flat-tracker(ng-class="{'navbar-flat-tracker-inverse': user}")
-            div.container
-                div.navbar-header
-                    button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#menu")
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href="#") Flat Tracker
+        include ./templates/header.jade
 
-                div.collapse.navbar-collapse#menu
-                    ul.nav.navbar-nav.navbar-right
-                        li(ng-hide="!user")
-                            a.dropdown-toggle(data-toggle="dropdown" role="button" aria-expanded="false" href="#") <i class="icon-male-sign-alt icon-2x"></i>
-                                p Mon Compte
-                            ul.dropdown-menu(role="menu")
-                                li
-                                    a(ui-sref="logout") Déconnexion
         div.container(ui-view)
 
-        footer.clearfix
-            div.container
-                ul.list-inline.text-center
-                    li
-                        a(href="mail:contact@flat-tracker.fr") Contactez-nous
-                    li @copyright 2015 Flat Tracker
+        include ./templates/footer.jade
 
-if prod == process.env.NODE_ENV
-    script(src="js/jquery/dist/jquery.min.js")
-    script(src="js/bootstrap/dist/js/bootstrap.min.js")
-    script(src="js/uri.js/src/URI.min.js")
-    script(src="js/moment/min/moment-with-locales.min.js")
-    script(src="js/parse-1.4.0.min.js")
-    script(src="js/angular/angular.min.js")
-    script(src="js/angular-momentjs/angular-momentjs.min.js")
-    script(src="js/angular-ui-router/release/angular-ui-router.min.js")
-    script(src="js/angular-intercom/angular-intercom.min.js")
-    script(src="js/parse-angular.js")
-    script(src="js/app.js")
-    script(src="js/templates.js")
-    script(src="js/config.js")
-else
-    script(src="js/flat-tracker.js")
-    script(src="js/templates.js")
-    script(src="js/config.js")
+    script(src="%scripts%/vendor.js")
+    script(src="%scripts%/%module%.js")
+    script(src="%scripts%/templates.js")
+    script(src="%scripts%/config.js")

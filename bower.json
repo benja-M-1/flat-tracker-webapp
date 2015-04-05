@@ -1,6 +1,6 @@
 {
-  "name": "flat-tracker",
-  "version": "0.0.0",
+  "name": "flatTracker",
+  "version": "1.0.0",
   "authors": [
     "Benjamin Grandfond <benjamin.grandfond@gmail.com>"
   ],
@@ -21,6 +21,7 @@
     "angular-ui-router": "~0.2.13",
     "angular-momentjs": "~0.1.9",
     "uri.js": "~1.14.2",
-    "angular-intercom": "~2.0.4"
+    "angular-intercom": "~2.0.4",
+    "angular-parse": "*"
   }
 }

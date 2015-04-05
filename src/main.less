@@ -1,14 +1,14 @@
-@import "../../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/bootstrap/less/bootstrap.less";
 
-@import "variables.less";
+@import "common/styles/variables.less";
 
-@import "buttons.less";
-@import "forms.less";
-@import "icons.less";
-@import "logos.less";
-@import "navbar.less";
-@import "thumbnails.less";
-@import "utilities.less";
+@import "common/styles/buttons.less";
+@import "common/styles/forms.less";
+@import "common/styles/icons.less";
+@import "common/styles/logos.less";
+@import "common/styles/navbar.less";
+@import "common/styles/thumbnails.less";
+@import "common/styles/utilities.less";
 
 html {
   height: 100%;
@@ -18,9 +18,14 @@ body {
   position: relative;
   background-color: @gray-lighter;
   min-height: 100%;
+
+  & > .container {
+    padding-bottom: 60px;
+  }
 }
 
 footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;

@@ -2,12 +2,12 @@
   "dev": {
     "configuration": {
       "env": "development",
-      "intercom": {
-        "app_id": "zqkghur6"
-      },
       "parse": {
         "app_id": "90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7",
-        "js_key": "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN"
+        "rest_key": "qu4zY6TBSB99eD7qk8O2fDFVQinvSaFBnLZkaxoz"
+      },
+      "intercom": {
+        "app_id": "zqkghur6"
       }
     }
   },
@@ -19,7 +19,7 @@
       },
       "parse": {
         "app_id": "90r1arW0HqTRASblgigvdLww25fDnxNhOYUMxUr7",
-        "js_key": "gA8DDq9vuBFlX0okGF8xWHO7m35URIbkweH1fcgN"
+        "rest_key": "qu4zY6TBSB99eD7qk8O2fDFVQinvSaFBnLZkaxoz"
       }
     }
   }
