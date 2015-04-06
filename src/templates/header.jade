@@ -15,7 +15,7 @@ nav.navbar.navbar-flat-tracker(ng-class="{'navbar-flat-tracker-inverse': user}")
                         p Mon Compte
                     ul.dropdown-menu(role="menu")
                         li
-                            a(href="#") {{ user.username }}
+                            a(ui-sref="user.profile") {{ user.username }}
                         li.divider
                         li
                             a(ui-sref="auth.logout") Déconnexion

@@ -6,6 +6,7 @@ angular.module "%module%", [
   "%module%.common",
   "%module%.auth",
   "%module%.ad",
+  "%module%.user",
 ]
 
 .config ($stateProvider, $urlRouterProvider, $intercomProvider, configuration, ParseProvider) ->

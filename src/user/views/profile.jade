@@ -1,0 +1,18 @@
+form.form-horizontal
+    h2.text-center Modifier mes informations
+    div.form-group
+        label.col-sm-2.control-label(for="username") Nom d'utilisateur
+        div.col-sm-10
+            input.form-control#username(type="text" placeholder="Nom d'utilisateur" ng-model="user.username")
+
+    div.form-group
+        label.col-sm-2.control-label(for="email") Email
+        div.col-sm-10
+            input.form-control#email(type="email" placeholder="Email" ng-model="user.email")
+
+    div.form-group
+        label.col-sm-2.control-label(for="fullname") Nom et prénom
+        div.col-sm-10
+            input.form-control#fullname(type="fullname" placeholder="Nom et prénom" ng-model="user.fullname")
+
+    button.btn.btn-success.btn-lg(type="submit" ng-click="submit(user)") Mettre à jour
