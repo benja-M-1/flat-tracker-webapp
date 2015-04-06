@@ -9,7 +9,7 @@ gulp.task 'configuration', () ->
   .pipe plumber()
   .pipe config("#{parameters.angular.module.name}", {
     createModule: false
-    environment: process.env.NODE_ENV || 'dev'
+    environment: process.env.NODE_ENV || 'development'
   })
   .pipe gulp.dest parameters.paths.www.scripts
 

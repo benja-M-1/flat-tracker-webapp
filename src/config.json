@@ -1,5 +1,5 @@
 {
-  "dev": {
+  "development": {
     "configuration": {
       "env": "development",
       "parse": {
@@ -11,7 +11,7 @@
       }
     }
   },
-  "prod": {
+  "production": {
     "configuration": {
       "env": "production",
       "intercom": {
