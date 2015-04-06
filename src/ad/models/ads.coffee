@@ -4,5 +4,5 @@ angular.module "%module%.ad"
     @configure "Ad", "title", "url"
 
     getURI: () ->
-      return URI(this.get('url'))
+      return URI(this.url)
 
