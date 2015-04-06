@@ -1,4 +1,5 @@
 ul.list-group
+    li.list-group-item.text-center(ng-show="ads.length == 0") Vous n'avez pas encore ajouté d'annonce
     li.list-group-item(ng-repeat="ad in ads")
         div.row
             div.col-xs-12.col-sm-2
