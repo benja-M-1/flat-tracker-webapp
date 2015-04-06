@@ -4,5 +4,5 @@ angular.module "%module%.user"
   "Parse",
   ($scope, Parse) ->
     $scope.submit = (user) ->
-      console.log user
+      user.save()
 ]

@@ -7,7 +7,7 @@ angular.module '%module%.auth'
   ($scope, $rootScope, $state, Parse) ->
     $scope.user = {}
     $scope.submit = (user) ->
-      Parse.auth.login(user.username, user.password)
+      Parse.auth.login(user.email, user.password)
       .then( () ->
         $rootScope.user = Parse.auth.currentUser
         $state.go "ad.list"
