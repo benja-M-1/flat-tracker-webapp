@@ -16,5 +16,5 @@ angular.module '%module%.auth'
 
         $state.go "ad.list"
       , (error) ->
-        $cope.error = error
+        $scope.error = error
 ]
